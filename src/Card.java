@@ -8,8 +8,9 @@ public class Card {
 	/**
 	 * String value that holds the suit of the card
 	 */
-	private String suit; 
-	/** 
+	private String suit;
+
+	/**
 	 * String value that holds the rank of the card
 	 */
 	private String rank;
@@ -31,10 +32,10 @@ public class Card {
 	 *                  containing the point value of the card
 	 */
 	public Card(String cardRank, String cardSuit, int cardPointValue) {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 1 *** */
-		suit = cardSuit;
+		//initializes a new Card with the given rank, suit, and point value
 		rank = cardRank;
-		pointValue = cardPointValue; 
+		suit = cardSuit;
+		pointValue = cardPointValue;
 	}
 
 
@@ -43,17 +44,15 @@ public class Card {
 	 * @return this <code>Card's</code> suit.
 	 */
 	public String suit() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 1 *** */
-		return this.suit;
-   }
+		return suit;
+	}
 
 	/**
 	 * Accesses this <code>Card's</code> rank.
 	 * @return this <code>Card's</code> rank.
 	 */
 	public String rank() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 1 *** */
-		return this.rank;
+		return rank;
 	}
 
    /**
@@ -61,8 +60,7 @@ public class Card {
 	 * @return this <code>Card's</code> point value.
 	 */
 	public int pointValue() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 1 *** */
-		return this.pointValue;
+		return pointValue;
 	}
 
 	/** Compare this card with the argument.
@@ -72,13 +70,9 @@ public class Card {
 	 *         false otherwise.
 	 */
 	public boolean matches(Card otherCard) {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 1 *** */
-		if (otherCard.suit().equals(this.suit()) && otherCard.rank().equals(this.rank()) && otherCard.pointValue() == (this.pointValue())) {
-			return true;
-		}
-		else {
-			return false;
-		}
+		return otherCard.suit().equals(this.suit())
+			&& otherCard.rank().equals(this.rank())
+			&& otherCard.pointValue() == this.pointValue();
 	}
 
 	/**
@@ -93,7 +87,6 @@ public class Card {
 	 */
 	@Override
 	public String toString() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 1 *** */
-		return this.rank + " of " + this.suit + " (point value = " + this.pointValue + ")";
+		return rank + " of " + suit + " (point value = " + pointValue + ")";
 	}
 }
