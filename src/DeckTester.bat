@@ -1,2 +1,0 @@
-java -ea DeckTester
-PAUSE
