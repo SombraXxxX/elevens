@@ -7,7 +7,7 @@ public class Shuffler {
 	 * The number of consecutive shuffle steps to be performed in each call
 	 * to each sorting procedure.
 	 */
-	private static final int SHUFFLE_COUNT = 1;
+	private static final int SHUFFLE_COUNT = 5;
 
 
 	/**
@@ -17,7 +17,7 @@ public class Shuffler {
 	public static void main(String[] args) {
 		System.out.println("Results of " + SHUFFLE_COUNT +
 								 " consecutive perfect shuffles:");
-		int[] values1 = {0, 1, 2, 3};
+		int[] values1 = {0, 1, 2, 3, 4, 5, 6};
 		for (int j = 1; j <= SHUFFLE_COUNT; j++) {
 			perfectShuffle(values1);
 			System.out.print("  " + j + ":");
@@ -30,7 +30,7 @@ public class Shuffler {
 
 		System.out.println("Results of " + SHUFFLE_COUNT +
 								 " consecutive efficient selection shuffles:");
-		int[] values2 = {0, 1, 2, 3};
+		int[] values2 = {0, 1, 2, 3, 4, 5, 6};
 		for (int j = 1; j <= SHUFFLE_COUNT; j++) {
 			selectionShuffle(values2);
 			System.out.print("  " + j + ":");
@@ -51,6 +51,24 @@ public class Shuffler {
 	 */
 	public static void perfectShuffle(int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
+		int[] temp = new int[values.length];
+		int mid = (values.length + 1) / 2;
+
+		int unshuffledPos = 0;
+		int k = 0;
+		for ( ; k < mid; k++) {
+			temp[unshuffledPos] = values[k];
+			unshuffledPos += 2;
+		}
+		unshuffledPos = 1;
+		for ( ; k < values.length; k++) {
+			temp[unshuffledPos] = values[k];
+			unshuffledPos += 2;
+		 }
+
+		for (k = 0; k < values.length; k++) {
+			values[k] = temp[k];
+		 }
 	}
 
 	/**
@@ -66,5 +84,11 @@ public class Shuffler {
 	 */
 	public static void selectionShuffle(int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
+		for (int k = values.length - 1; k > 0; k--) {
+			int pos = (int) (Math.random() * (k + 1));  
+			int temp = values[pos];
+			values[pos] = values[k];
+			values[k] = temp;
+		}
 	}
 }
